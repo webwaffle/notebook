@@ -1,0 +1,19 @@
+<div id="topbar">
+    <h1>Logged in as {{username}}</h1>
+    <a href="/logout">Log out</a>
+    <form action="/create-notebook-process" method="POST">
+        <h3>Create Notebook</h3>
+        <input type="text" name="name" id="name" placeholder="Notebook Name">
+        <input type="submit" value="Create">
+    </form>
+</div>
+<div id="notebooks">
+    {{#each notebooks}}
+    <a href="/notebook/{{id}}" style="text-decoration: none; color: black;">
+        <div class="notebook">
+            <h3 class="name">{{name}}</h3>
+            <p class="created">Created {{created}}</p>
+        </div>
+    </a>
+    {{/each}}
+</div>

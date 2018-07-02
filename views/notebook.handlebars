@@ -1,0 +1,9 @@
+<h1>{{book.name}}</h1>
+<a href="/notebook/{{book.id}}/create-entry">Create Entry</a>
+{{#each book.entries}}
+    <div class="entry">
+        <h2 class="title">{{title}}</h2>
+        <p class="text">{{text}}</p>
+        <p class="entered">Entered on {{entered}}</p>
+    </div>
+{{/each}}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+* {
+    font-family: 'Slabo 27px', sans-serif;
+}
+body {
+    margin: 0px;
+}
+
+#topbar {
+    width: 100%;
+    height: 300px;
+    border-bottom: 1px solid black;
+    top: 0;
+    position: fixed;
+    #user-form {
+        border: 1px solid black;
+        border-radius: 6px;
+        max-width: 200px;
+        input {
+            margin: 5px;
+        }
+    }
+}
+#notebooks {
+    margin-top: 306px;
+    .notebook {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        border: 1px solid gray;
+        border-radius: 8px;
+        margin: 8px;
+        box-shadow: 0px 0px 0px gray;
+        transition: box-shadow .1s;
+        .created {
+            font-size: 10px;
+            color: gray;
+        }
+    }
+    .notebook:hover {
+        .notebook;
+        box-shadow: 0px 0px 20px gray;
+        transition: box-shadow .25s;
+    }
+    //later: https://stackoverflow.com/questions/30593103/preserve-line-breaks-in-textarea
+}
+.entry {
+    width: 500px;
+    min-height: 200px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 8px;
+    .text {
+        white-space: pre;
+    }
+}
