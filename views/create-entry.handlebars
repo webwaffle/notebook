@@ -1,5 +1,13 @@
-<form action="/notebook/{{id}}/create-entry-process" method="POST">
-    <input type="text" name="title" id="title" placeholder="Entry Title"><br>
-    <textarea name="text" id="entry" cols="50" rows="25" placeholder="Entry Text"></textarea><br>
-    <input type="submit" value="Create">
-</form>
+<div id="topbar">
+    <a href="/" class="nocolor-link">
+        <h1 id="main-head">Notebook</h1>
+    </a>
+    <a href="/logout" id="logout-button" class="button-red">Log out</a>
+</div>
+<div id="main" style="padding: 8px;">
+    <form action="/notebook/{{id}}/create-entry-process" method="POST">
+        <input type="text" name="title" id="title" placeholder="Entry Title"><br>
+        <textarea name="text" id="entry" cols="50" rows="25" placeholder="Entry Text"></textarea><br>
+        <input type="submit" value="Create">
+    </form>
+</div>
