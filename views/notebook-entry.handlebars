@@ -1,0 +1,20 @@
+<div id="topbar">
+    <a href="/" class="nocolor-link">
+        <h1 id="main-head">Notebook</h1>
+    </a>
+    <a href="/logout" id="logout-button" class="button-red">Log out</a>
+    <a href="/notebook/{{book.id}}" class="button-blue" style="float: right;">This notebook</a>
+</div>
+<div id="main">
+    <p>Logged in as {{username}}</p>
+    <h1>{{entry.title}}</h1>
+    <h2>In notebook "{{book.name}}"</h2>
+    <form action="/notebook/{{book.id}}/entry/{{entry.id}}/edit-entry-process" method="POST" id="edit-form">
+        <textarea name="text" id="edit" cols="50" rows="25">{{entry.text}}</textarea><br>
+        <input type="submit" value="Save Changes">
+    </form>
+    <div id="entry-text">{{entry.text}}</div><br>
+    <button id="edit-button">Edit</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+    <script src="/client_js/entrypage.js"></script>
+</div>

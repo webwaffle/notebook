@@ -21,6 +21,7 @@
     "express-session": "^1.15.6",
     "express3-handlebars": "^0.5.2",
     "moment": "^2.22.2",
-    "session-file-store": "^1.2.0"
+    "session-file-store": "^1.2.0",
+    "showdown": "^1.8.6"
   }
 }

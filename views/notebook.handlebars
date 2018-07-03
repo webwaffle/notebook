@@ -1,9 +1,17 @@
+<div id="topbar">
+    <a href="/" class="nocolor-link"><h1 id="main-head">Notebook</h1></a>
+    <a href="/logout" id="logout-button" class="button-red">Log out</a>
+</div>
+<div id="main">
 <h1>{{book.name}}</h1>
-<a href="/notebook/{{book.id}}/create-entry">Create Entry</a>
+<a href="/notebook/{{book.id}}/create-entry" class="button-blue">Create Entry</a><br><br>
 {{#each book.entries}}
-    <div class="entry">
-        <h2 class="title">{{title}}</h2>
-        <p class="text">{{text}}</p>
-        <p class="entered">Entered on {{entered}}</p>
-    </div>
+    <a href="/notebook/{{../book.id}}/entry/{{id}}" class="entrylink">
+        <div class="entry">
+            <h2 class="title">{{title}}</h2>
+            <p class="entered">Last modified {{entered}}</p>
+            <p class="wordcount">{{wordcount}} Words</p>
+        </div>
+    </a>
 {{/each}}
+</div>

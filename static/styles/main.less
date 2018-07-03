@@ -1,14 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Slabo+27px');
+//https://coolors.co/848c8e-435058-ef8a17-ef2917-253d5b old
+//https://coolors.co/616668-313b41-ae6511-ae1e11-1b2d43 darker
+@blue: #235d5b;
+@darkblue: #1b2d43;
+@red: #ef2917;
+@darkred: #ae1e11;
 * {
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
     font-family: 'Slabo 27px', sans-serif;
 }
 body {
     margin: 0px;
 }
 
+.nocolor-link {
+    color: black;
+}
+
+.button {
+    color: white;
+    border-radius: 5px;
+    padding: 10px 16px;
+    margin: 5px;
+    text-decoration: none;
+    transition: color .1s;
+    text-decoration: none;
+}
+.button-red {
+    .button;
+    background-color: @darkred;
+    border: 1px solid @darkred;
+}
+.button-red:hover {
+    .button;
+    background-color: @red;
+    border: 1px solid @red;
+    transition: color .1s;
+}
+.button-blue {
+    .button;
+    background-color: @darkblue;
+    border: 1px solid @darkblue;
+}
+.button-blue:hover {
+    .button;
+    background-color: @blue;
+    border: 1px solid @blue;
+    transition: color .1s;
+}
 #topbar {
     width: 100%;
-    height: 300px;
+    height: 60px;
     border-bottom: 1px solid black;
     top: 0;
     position: fixed;
@@ -20,37 +64,78 @@ body {
             margin: 5px;
         }
     }
+    #logout-button {
+        float: right;
+        bottom: 0;
+    }
+    #main-head {
+        margin: 0px;
+        display: inline;
+    }
 }
-#notebooks {
-    margin-top: 306px;
-    .notebook {
-        display: inline-block;
+
+#main {
+    margin-top: 66px;
+}
+
+.notebook {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin: 5px;
+    box-shadow: 0px 0px 0px gray;
+    transition: box-shadow .1s;
+    .created {
+        font-size: 10px;
+        color: gray;
+    }
+}
+
+.notebook:hover {
+    .notebook;
+    box-shadow: 0px 0px 20px gray;
+    transition: box-shadow .25s;
+} //later: https://stackoverflow.com/questions/30593103/preserve-line-breaks-in-textarea
+.entrylink {
+    color: black;
+    .entry {
+        text-decoration: none;
         width: 150px;
-        height: 150px;
-        border: 1px solid gray;
+        min-height: 150px;
+        border: 1px solid black;
         border-radius: 8px;
         margin: 8px;
+        float: left;
+        display: inline;
         box-shadow: 0px 0px 0px gray;
         transition: box-shadow .1s;
-        .created {
-            font-size: 10px;
-            color: gray;
-        }
     }
-    .notebook:hover {
-        .notebook;
-        box-shadow: 0px 0px 20px gray;
+    .entry:hover {
+        .entry;
+        box-shadow: 0px 0px 30px gray;
         transition: box-shadow .25s;
     }
-    //later: https://stackoverflow.com/questions/30593103/preserve-line-breaks-in-textarea
 }
-.entry {
-    width: 500px;
-    min-height: 200px;
-    border: 1px solid black;
-    border-radius: 8px;
-    margin: 8px;
-    .text {
-        white-space: pre;
-    }
+
+textarea {
+    font-size: 15px;
+}
+
+#edit-form {
+    max-width: 500px;
+    float: left; //margin-left: 25%;
+}
+
+#entry-text {
+    float: left;
+    display: block; //border: 1px solid black;
+    //border-radius: 8px;
+    margin: 6px;
+    padding: 6px; //margin-right: 25%;
+}
+
+#edit-button {
+    display: block;
 }

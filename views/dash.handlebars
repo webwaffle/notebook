@@ -1,18 +1,20 @@
 <div id="topbar">
-    <h1>Logged in as {{username}}</h1>
-    <a href="/logout">Log out</a>
-    <form action="/create-notebook-process" method="POST">
+    <a href="/" class="nocolor-link"><h1 id="main-head">Notebook</h1></a>
+    <a href="/logout" id="logout-button" class="button-red">Log out</a>
+</div>
+<div id="main">
+   <form action="/create-notebook-process" method="POST">
         <h3>Create Notebook</h3>
         <input type="text" name="name" id="name" placeholder="Notebook Name">
         <input type="submit" value="Create">
     </form>
-</div>
-<div id="notebooks">
+    <h1>My notebooks</h1>
     {{#each notebooks}}
     <a href="/notebook/{{id}}" style="text-decoration: none; color: black;">
         <div class="notebook">
             <h3 class="name">{{name}}</h3>
             <p class="created">Created {{created}}</p>
+            <p class="entry-count">{{entriescount}} Entries</p>
         </div>
     </a>
     {{/each}}

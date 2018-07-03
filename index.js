@@ -6,6 +6,7 @@ var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var fs = require('fs');
 var moment = require('moment');
+var showdown = require('showdown');
 var handlebars = require('express3-handlebars').create({
     defaultLayout: 'main'
 });
@@ -46,15 +47,66 @@ app.get('/notebook/:id', (req, res) => {
             if (books[i].owner == req.session.username) {
                 var book = books[i];
             } else {
-                req.send('This isn\'t your book.');
+                res.send('This isn\'t your book.');
             }
         }
+    }
+    var converter = new showdown.Converter();
+    for(var i = 0; i < book.entries.length; i++) {
+        book.entries[i].entered = moment(book.entries[i].entered, "MM-DD-YYYY h:mm:ss a").fromNow();
+        book.entries[i].wordcount = book.entries[i].text.split(" ").length;
     }
     var args = {
         book: book,
         username: req.session.username
     };
     res.render('notebook', args);
+});
+app.get('/notebook/:id/entry/:entryid', (req, res) => {
+    var books = fileToJson('data/notebooks.json');
+    for (var i = 0; i < books.length; i++) {
+        if (books[i].id == req.params.id) {
+            if (books[i].owner == req.session.username) {
+                var book = books[i];
+            } else {
+                res.send('This isn\'t your book.');
+            }
+        }
+    }
+    var converter = new showdown.Converter();
+    for(var i = 0; i < book.entries.length; i++) {
+        //book.entries[i].text = converter.makeHtml(book.entries[i].text);
+        //console.log(book.entries[i].text);
+        book.entries[i].entered = moment(book.entries[i].entered, "MM-DD-YYYY h:mm:ss a").fromNow();
+        if (book.entries[i].id == req.params.entryid) {
+            var entry = book.entries[i];
+        }
+    }
+    var args = {
+        book: book,
+        entry: entry,
+        username: req.session.username
+    };
+    res.render('notebook-entry', args);
+});
+app.post('/notebook/:id/entry/:entryid/edit-entry-process', (req, res) => {
+    var books = fileToJson('data/notebooks.json');
+    for (var i = 0; i < books.length; i++) {
+        if (books[i].id == req.params.id) {
+            if (books[i].owner == req.session.username) {
+                for(var x = 0; x < books[i].entries.length; x++) {
+                    if(books[i].entries[x].id == req.params.entryid) {
+                        books[i].entries[x].text = req.body.text;
+                        books[i].entries[x].entered = moment().format("MM-DD-YYYY h:mm:ss a");
+                    }
+                }
+            } else {
+                res.send('This isn\'t your book.');
+            }
+        }
+    }
+    jsonToFile(books, 'data/notebooks.json');
+    res.redirect(303, '/notebook/' + req.params.id);
 });
 app.get('/notebook/:id/create-entry', (req, res) => {
     res.render('create-entry', {
@@ -89,7 +141,7 @@ app.get('/dash', (req, res) => {
         for (i in bookArray) {
             if (bookArray[i].owner == req.session.username) {
                 bookArray[i].created = moment(bookArray[i].created, "MM-DD-YYYY h:mm:ss a").fromNow();
-                bookArray[i].entriescount = bookArray[i].entries.length
+                bookArray[i].entriescount = bookArray[i].entries.length;
                 mine.push(bookArray[i]);
             }
         }
