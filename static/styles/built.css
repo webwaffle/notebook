@@ -27,7 +27,7 @@ body {
   border-radius: 5px;
   padding: 10px 16px;
   margin: 5px;
-  transition: color .1s;
+  transition: all .35s;
   text-decoration: none;
 }
 .button-red {
@@ -35,7 +35,7 @@ body {
   border-radius: 5px;
   padding: 10px 16px;
   margin: 5px;
-  transition: color .1s;
+  transition: all .35s;
   text-decoration: none;
   background-color: #ae1e11;
   border: 1px solid #ae1e11;
@@ -48,14 +48,14 @@ body {
   text-decoration: none;
   background-color: #ef2917;
   border: 1px solid #ef2917;
-  transition: color .1s;
+  transition: all .35s;
 }
 .button-blue {
   color: white;
   border-radius: 5px;
   padding: 10px 16px;
   margin: 5px;
-  transition: color .1s;
+  transition: all .35s;
   text-decoration: none;
   background-color: #1b2d43;
   border: 1px solid #1b2d43;
@@ -68,7 +68,7 @@ body {
   text-decoration: none;
   background-color: #235d5b;
   border: 1px solid #235d5b;
-  transition: color .1s;
+  transition: all .35s;
 }
 #topbar {
   width: 100%;
@@ -98,31 +98,15 @@ body {
 }
 .notebook {
   display: inline-block;
-  width: 150px;
-  height: 150px;
-  border: 1px solid gray;
-  border-radius: 8px;
+  width: 190px;
+  height: 310px;
+  padding-left: 110px;
+  background-image: url('/img/notebook-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 5px;
-  box-shadow: 0px 0px 0px gray;
-  transition: box-shadow 0.1s;
 }
 .notebook .created {
-  font-size: 10px;
-  color: gray;
-}
-.notebook:hover {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  border: 1px solid gray;
-  border-radius: 8px;
-  margin: 5px;
-  box-shadow: 0px 0px 0px gray;
-  transition: box-shadow 0.1s;
-  box-shadow: 0px 0px 20px gray;
-  transition: box-shadow 0.25s;
-}
-.notebook:hover .created {
   font-size: 10px;
   color: gray;
 }

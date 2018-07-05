@@ -25,7 +25,7 @@ body {
     padding: 10px 16px;
     margin: 5px;
     text-decoration: none;
-    transition: color .1s;
+    transition: all .35s;
     text-decoration: none;
 }
 .button-red {
@@ -37,7 +37,7 @@ body {
     .button;
     background-color: @red;
     border: 1px solid @red;
-    transition: color .1s;
+    transition: all .35s;
 }
 .button-blue {
     .button;
@@ -48,7 +48,7 @@ body {
     .button;
     background-color: @blue;
     border: 1px solid @blue;
-    transition: color .1s;
+    transition: all .35s;
 }
 #topbar {
     width: 100%;
@@ -80,24 +80,18 @@ body {
 
 .notebook {
     display: inline-block;
-    width: 150px;
-    height: 150px;
-    border: 1px solid gray;
-    border-radius: 8px;
+    width: 190px;
+    height: 310px;
+    padding-left: 110px;
+    background-image: url('/img/notebook-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 5px;
-    box-shadow: 0px 0px 0px gray;
-    transition: box-shadow .1s;
     .created {
         font-size: 10px;
         color: gray;
     }
 }
-
-.notebook:hover {
-    .notebook;
-    box-shadow: 0px 0px 20px gray;
-    transition: box-shadow .25s;
-} //later: https://stackoverflow.com/questions/30593103/preserve-line-breaks-in-textarea
 .entrylink {
     color: black;
     .entry {

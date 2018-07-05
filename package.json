@@ -8,7 +8,8 @@
     "start": "node index.js",
     "bundle": "browserify client_src/entrypage.js -o static/client_js/bundle/entrypage.js",
     "less": "lessc client_src/main.less static/styles/built.css",
-    "devrun": "npm run bundle && npm run less && node index.js"
+    "build": "npm run bundle && npm run less",
+    "build-run": "npm run bundle && npm run less && node index.js"
   },
   "repository": {
     "type": "git",
